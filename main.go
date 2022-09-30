@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"log"
 	"os"
 	"strings"
@@ -102,6 +103,10 @@ func readShards(path string) ([]string, error) {
 		return nil, err
 	}
 
+	if len(data) == 0 {
+		return nil, errors.New("no shards found")
+	}
+
 	shards := strings.Split(string(data), "\n")
 	return shards, nil
 }
@@ -116,6 +121,10 @@ func readToken(path string) (string, error) {
 
 	if err != nil {
 		return "", err
+	}
+
+	if len(data) == 0 {
+		return "", errors.New("no token found")
 	}
 
 	token := string(data)
