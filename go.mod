@@ -1,4 +1,4 @@
-module github.com/adrianliechti/vault-unsealer
+module github.com/platformplane/vault-unsealer
 
 go 1.19
 

@@ -12,8 +12,8 @@ FROM alpine:3.16
 
 RUN apk add --no-cache tini
 
-WORKDIR /app
+WORKDIR /
 COPY --from=builder /src/unsealer .
 
 ENTRYPOINT ["tini", "--"]
-CMD [ "/app/unsealer" ]
+CMD [ "/unsealer" ]
