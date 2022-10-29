@@ -1,5 +1,5 @@
 # builder
-FROM golang:1.19-alpine3.16 as builder
+FROM golang:1-alpine as builder
 
 WORKDIR /src
 COPY . .
@@ -8,7 +8,7 @@ RUN go mod download
 RUN go build -o unsealer
 
 
-FROM alpine:3.16
+FROM alpine:3
 
 RUN apk add --no-cache tini
 
